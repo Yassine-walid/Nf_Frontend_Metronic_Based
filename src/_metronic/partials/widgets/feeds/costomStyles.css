@@ -1,0 +1,25 @@
+/* Custom styles */
+.row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.row.no-gutters > .col-md-4 {
+    padding-right: 110;
+    padding-left: 110;
+}
+.row.no-borders .card {
+    border: none;
+}
+.bold-text {
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.marg{
+    margin-top: -50px;
+}
+
+.cont{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}

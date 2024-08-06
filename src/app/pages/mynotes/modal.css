@@ -1,0 +1,33 @@
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  background-color: green;
+  width: 5%;
+  opacity: 0.8;
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  background-image: none;
+}
+
+.custom-carousel .carousel-control-prev-icon::after,
+.custom-carousel .carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+}
+
+.custom-carousel .carousel-control-prev-icon::after {
+  transform: rotate(135deg);
+}
+
+.custom-carousel .carousel-control-next-icon::after {
+  transform: rotate(-45deg);
+}
+
+.custom-carousel .carousel-indicators [data-bs-target] {
+  background-color: green;
+}

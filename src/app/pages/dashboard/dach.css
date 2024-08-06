@@ -1,0 +1,18 @@
+.btn-prv{
+    border-radius: 10px;
+    background-color: #004e2b;
+    color: white;
+    margin-top: 30px;
+    width: 250px;
+    float: right;
+}
+
+.btn-prv:hover{
+    border-radius: 10px;
+    border-color: #004e2b;
+    border: 10px;
+    background-color: rgba(0, 0, 0, 0.223);
+    margin-top: 30px;
+    width: 250px;
+    float: right;
+}
