@@ -28,7 +28,7 @@ const PrivateRoutes = () => {
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='notefrais' element={<NoteFraisWrapper />} />
         <Route path='mes-notes-frais' element={<MesNotesFrais />} />
-        <Route path='modify-note-expenses' element={<ModifyNoteExpenses />} />
+        <Route path='modify-note-expenses/:noteFraisId' element={<ModifyNoteExpenses />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
         {/* Lazy Modules */}

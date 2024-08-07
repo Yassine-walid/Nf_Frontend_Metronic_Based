@@ -44,8 +44,8 @@ const MesNotesFrais: FC = () => {
   const [notes, setNotes] = useState<NoteFraisModel[]>([]);
   const [selectedNote, setSelectedNote] = useState<NoteFraisModel | null>(null);
   const [showDetails, setShowDetails] = useState(false);
-  const [startDate, setStartDate] = useState<string>("");
-  const [endDate, setEndDate] = useState<string>("");
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
   const [status, setStatus] = useState<string>("");
   const [totalCount, setTotalCount] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -54,7 +54,7 @@ const MesNotesFrais: FC = () => {
 
   const formatDate = (date: Date): string => {
     if (!date) return "";
-    return new Date(date).toLocaleDateString("en-US");
+    return date.toISOString().substring(0, 10);
   };
 
   useEffect(() => {
@@ -66,22 +66,20 @@ const MesNotesFrais: FC = () => {
           url += `requesterIdPrefix=${search}&`;
         }
         if (startDate) {
-          url += `startDate=${startDate}&`;
+          url += `startDate=${formatDate(startDate)}&`;
         }
         if (endDate) {
-          url += `endDate=${endDate}&`;
+          url += `endDate=${formatDate(endDate)}&`;
         }
         if (status) {
           url += `statusValue=${status}&`;
         }
 
-        url += `pageNumber=${pageNumber}&pageSize=9`;
-
-        console.log(url);
+        url += `pageNumber=${pageNumber}&pageSize=${pageSize}`;
 
         const response = await axios.get<ApiResponse>(url);
 
-        console.log("API response:", response.data);
+        console.log(url);
 
         if (response.data && Array.isArray(response.data.items)) {
           setNotes(response.data.items);
@@ -124,8 +122,8 @@ const MesNotesFrais: FC = () => {
 
   const clearFields = () => {
     setSearch("");
-    setStartDate("");
-    setEndDate("");
+    setStartDate(null);
+    setEndDate(null);
     setStatus("");
     setPageNumber(1);
   };
@@ -148,8 +146,8 @@ const MesNotesFrais: FC = () => {
             <Col xs={3}>
               <Form.Control
                 type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
+                value={startDate ? startDate.toISOString().substring(0, 10) : ""}
+                onChange={(e) => setStartDate(e.target.value ? new Date(e.target.value) : null)}
                 placeholder="Start Date"
                 aria-label="Start Date"
               />
@@ -157,8 +155,8 @@ const MesNotesFrais: FC = () => {
             <Col xs={3}>
               <Form.Control
                 type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
+                value={endDate ? endDate.toISOString().substring(0, 10) : ""}
+                onChange={(e) => setEndDate(e.target.value ? new Date(e.target.value) : null)}
                 placeholder="End Date"
                 aria-Label="End Date"
               />
@@ -286,4 +284,4 @@ const MesNotesFrais: FC = () => {
   );
 };
 
-export { MesNotesFrais };
+export { MesNotesFrais }

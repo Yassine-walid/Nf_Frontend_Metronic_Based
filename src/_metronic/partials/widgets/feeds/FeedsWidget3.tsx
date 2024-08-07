@@ -46,8 +46,11 @@ const FeedsWidget3: FC<Props> = ({ className }) => {
           'accept': 'text/plain',
         },
       });
-      //console.log('Data saved successfully:', response.data);
-      navigate('/modify-note-expenses');
+      console.log('Data saved successfully:', response.data);
+
+      const noteFraisId = response.data;
+      
+      navigate(`/modify-note-expenses/${noteFraisId}`);
 
       
     } catch (error) {
