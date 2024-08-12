@@ -13,7 +13,7 @@ import { FaEye } from "react-icons/fa";
 import { CiCalendar } from "react-icons/ci";
 import NoteDetails from "./NoteDetails";
 import "./modal.css";
- 
+
 export type NoteFraisModel = {
   noteFraisId: number;
   title: string;
@@ -30,7 +30,7 @@ export type NoteFraisModel = {
   mailDirHierarchique: string;
   requesterId: Int32Array;
 };
- 
+
 interface ApiResponse {
   items: NoteFraisModel[];
   totalCount: number;
@@ -38,7 +38,7 @@ interface ApiResponse {
   pageSize: number;
   totalPages: number;
 }
- 
+
 const MesNotesFrais: FC = () => {
   const [search, setSearch] = useState<string>("");
   const [notes, setNotes] = useState<NoteFraisModel[]>([]);
@@ -51,17 +51,17 @@ const MesNotesFrais: FC = () => {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [totalPages, setTotalPages] = useState<number>(1);
- 
+
   const formatDate = (date: Date): string => {
     if (!date) return "";
     return date.toISOString().substring(0, 10);
   };
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         let url = "https://localhost:7151/api/NoteFrais/search?";
- 
+
         if (search) {
           url += `requesterIdPrefix=${search}&`;
         }
@@ -74,13 +74,13 @@ const MesNotesFrais: FC = () => {
         if (status) {
           url += `statusValue=${status}&`;
         }
- 
+
         url += `pageNumber=${pageNumber}&pageSize=${pageSize}`;
- 
+
         const response = await axios.get<ApiResponse>(url);
- 
+
         console.log(url);
- 
+
         if (response.data && Array.isArray(response.data.items)) {
           setNotes(response.data.items);
           setTotalCount(response.data.totalCount);
@@ -110,7 +110,7 @@ const MesNotesFrais: FC = () => {
  
     fetchData();
   }, [search, startDate, endDate, status, pageNumber, pageSize]);
- 
+
   const handleShowDetails = (note: NoteFraisModel) => {
     setSelectedNote(note);
     setShowDetails(true);
@@ -283,5 +283,5 @@ const MesNotesFrais: FC = () => {
     </div>
   );
 };
- 
+
 export { MesNotesFrais }

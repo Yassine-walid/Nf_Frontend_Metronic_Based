@@ -52,7 +52,7 @@ const DashboardWrapper: FC = () => {
       <FeedsWidget2  className=''/>
       <span className='mx-5'></span>
       <FeedsWidget3  className=''/>
-      <button type="button" className="btn btn-prv">Valider</button>
+      
     </>
   )
 }

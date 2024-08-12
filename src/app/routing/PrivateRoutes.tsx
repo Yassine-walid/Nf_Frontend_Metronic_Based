@@ -9,6 +9,7 @@ import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import { NoteFraisWrapper } from '../pages/notesFrais/NoteFraisWrapper'
 import { MesNotesFrais } from '../pages/mynotes/MesNotesFrais'
+import { ModifyNoteExpenses } from '../pages/mynotes/ModifyNoteExpenses'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -27,6 +28,7 @@ const PrivateRoutes = () => {
         <Route path='dashboard' element={<DashboardWrapper />} />
         <Route path='notefrais' element={<NoteFraisWrapper />} />
         <Route path='mes-notes-frais' element={<MesNotesFrais />} />
+        <Route path='modify-note-expenses/:noteFraisId' element={<ModifyNoteExpenses />} />
         <Route path='builder' element={<BuilderPageWrapper />} />
         <Route path='menu-test' element={<MenuTestPage />} />
         {/* Lazy Modules */}

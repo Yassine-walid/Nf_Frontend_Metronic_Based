@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Spinner, Table } from "react-bootstrap";
 import { FaCalendarAlt, FaPaperclip, FaTimes } from "react-icons/fa";
-import { NoteFraisModel } from "../../models/noteFrais";
+import { NoteFraisModel } from "../../models/NoteFrais";
 import { FraisAdditionnels } from "../../models/FraisAdditionnels";
 import axios from "axios";
 import PieceJointeModal from "./PieceJointeModal";
