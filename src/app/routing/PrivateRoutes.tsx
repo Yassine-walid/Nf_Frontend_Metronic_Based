@@ -8,8 +8,9 @@ import {getCSSVariableValue} from '../../_metronic/assets/ts/_utils'
 import {WithChildren} from '../../_metronic/helpers'
 import BuilderPageWrapper from '../pages/layout-builder/BuilderPageWrapper'
 import { NoteFraisWrapper } from '../pages/notesFrais/NoteFraisWrapper'
-import { MesNotesFrais } from '../pages/mynotes/MesNotesFrais'
+ 
 import { ModifyNoteExpenses } from '../pages/mynotes/ModifyNoteExpenses'
+import MesNotesFrais from '../pages/mynotes/MesNotesFrais'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
