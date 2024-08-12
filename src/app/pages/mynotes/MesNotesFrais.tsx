@@ -49,7 +49,7 @@ const MesNotesFrais: FC = () => {
   const [status, setStatus] = useState<string>("");
   const [totalCount, setTotalCount] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(10);
+  const [pageSize, setPageSize] = useState<number>(9);
   const [totalPages, setTotalPages] = useState<number>(1);
 
   const formatDate = (date: Date): string => {
