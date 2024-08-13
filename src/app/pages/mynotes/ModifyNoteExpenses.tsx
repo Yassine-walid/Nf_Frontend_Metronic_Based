@@ -108,8 +108,8 @@ const ModifyNoteExpenses: FC = () => {
       const updatedRow = {
         ...selectedRow,
         totalePayerJournalier:
-          selectedRow.fixe * selectedRow.tauxFixe +
-          selectedRow.kilometrage * selectedRow.tauxVariable,
+          (selectedRow.fixe * selectedRow.tauxFixe) +
+          (selectedRow.kilometrage * selectedRow.tauxVariable)
       };
 
       // Update the note details

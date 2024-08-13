@@ -42,3 +42,11 @@
   top: 0;  
   z-index: 1000;
 }
+
+.modalDiv{
+  border: 2px solid green;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+ 

@@ -228,12 +228,12 @@ const MesNotesFrais: FC = () => {
                   Matricule: {note.requesterId.toString()}
                 </Card.Text>
                 <Card.Body className="text-center">
-                  <Card.Title className="text-lg">{note.title}</Card.Title>
+                  <Card.Title className="text-lg">Cimar Noreply / DAF - Informatique</Card.Title>
                   <Card.Text>Indemnité Kilométrique</Card.Text>
                   <div className="d-flex justify-content-center align-items-center mb-3">
                     <CiCalendar className="text-success me-2" size={20} />
                     <span>
-                      Mois/Année: {note.mois}/{note.annee}
+                      Mois/Année: {note.mois.toString()}/{note.annee.toString()}
                     </span>
                   </div>
                   <Badge
